@@ -1,0 +1,13 @@
+
+GET http://localhost:3000/api/test
+Content-Type: application/json
+
+### 
+# Customers
+PUT http://localhost:3000/api/customers
+Content-Type: application/json
+
+### 
+# Customers
+GET http://localhost:3000/api/customers
+Content-Type: application/json
