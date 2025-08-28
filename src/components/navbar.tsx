@@ -1,10 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Blocks } from "lucide-react";
 import Link from "next/link";
-import { ModeToggle } from "./toggle-theme";
-
+import { Blocks, Package } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "./theme/toggle-theme";
 interface NavLink {
   name: string;
   href: string;
@@ -25,13 +24,13 @@ const Header = ({
   domainName = "Boxi Sleep",
   logo = <Blocks size={30} />,
   navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About Us", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Inicio", href: "/" },
+    { name: "Nosotros", href: "/about" },
+    { name: "Contacto", href: "/contact" },
   ],
   authLinks = {
-    login: { text: "Login", href: "#" },
-    register: { text: "Register", href: "#" },
+    login: { text: "Login", href: "/login" },
+    register: { text: "Register", href: "/register" },
   },
   className = "",
 }: NavbarProps) => {
@@ -61,6 +60,15 @@ const Header = ({
 
       {/* Auth Links */}
       <div className="flex items-center space-x-4">
+        <div className="flex gap-2">
+          <Link href="/products">
+            <Button variant="outline" size="sm">
+              <Package className="mr-2 h-4 w-4" />
+              Gestionar Productos
+            </Button>
+          </Link>
+        </div>
+
         <Button className="h-10" variant="outline" asChild>
           <Link href={authLinks.login.href}>{authLinks.login.text}</Link>
         </Button>
